@@ -1,4 +1,9 @@
-**Date:** April 24, 2020
+---
+title: "Choi_Diane_Capstone"
+author: "Diane Choi"
+date: "April 24, 2020"
+output: html_document
+---
 
 ## 1. Background and Significance
 
@@ -36,11 +41,8 @@ An equal number of FTD and control (non-dementia) samples will be randomly selec
 library(tidyr)
 library(tidyverse)
 library(datapasta)
-library(DescTools)
 library(ez)
-library(viridis)
-library(nlme)
-library(lme4)
+library(knitr)
 
 ID <- c(1, 1, 2, 2, 3, 3, 1, 1, 2, 2, 3, 3)
 Disease <- c(rep("control",6), rep("FTD", 6))
@@ -49,13 +51,14 @@ protein_norm <- c(0.7143, 1.1475, 1.1888, 1.8534, 1.0968, 2.1278, 1.5689, 0.4612
 
 brain <- data.frame(ID, Disease, matter, protein_norm)
 
-ggplot(brain, aes(x=matter, y=protein_norm, color=Disease))+
+protein_plot <- ggplot(brain, aes(x=matter, y=protein_norm, color=Disease))+
  geom_boxplot()+
   geom_jitter(size=3)+
   theme_classic()+
   xlab("Brain Matter")+
   ylab("Average Protein Quantification [arbitrary]")+
   ggtitle("V2 Protein Levels in Grey and White Matter of FTD vs Control Cases")
+protein_plot
 
 ```
 
@@ -63,7 +66,7 @@ ggplot(brain, aes(x=matter, y=protein_norm, color=Disease))+
 
 ## 9. Monte Carlo
 
-```{r}
+```{r warning=FALSE}
 #Determining mean and standard deviation for disease and brain matter states
 brain %>% group_by(Disease, matter) %>% 
   summarise(m=mean(protein_norm),
@@ -122,8 +125,5 @@ pwr.pct <- sum(pval<0.05)/sims*100
 paste(pwr.pct, sep="", "% power. Change 'n' in your initializer for higher or lower power.")
 ```
 
-**Monte Carlo power analysis indicates a sample size of n = 3 (where n is the number of independent replicates per group) is necessary to achieve a power of 83%, and thereby meets the type2 error tolerance threshold.**
+**Monte Carlo power analysis indicates a sample size of n = 3 (where n is the number of independent replicates per group) is necessary to achieve a power of 86%, and thereby meets the type2 error tolerance threshold.**
 
-
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
