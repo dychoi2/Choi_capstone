@@ -56,7 +56,7 @@ protein_plot <- ggplot(brain, aes(x=matter, y=protein_norm, color=Disease))+
 protein_plot
 
 ```
-
+Rplot.jpeg
 **Pilot data from my Hales lab rotation is plotted above. We see that V2 protein levels are upregulated in grey brain matter and downregulated in white matter of FTD cases, compared to controls.**
 
 ## 9. Monte Carlo
