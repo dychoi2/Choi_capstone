@@ -1,9 +1,4 @@
----
-title: "Choi_Diane_Capstone"
-author: "Diane Choi"
-date: "April 24, 2020"
-output: html_document
----
+**Date:** April 24, 2020
 
 ## 1. Background and Significance
 
