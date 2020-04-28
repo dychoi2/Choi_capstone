@@ -1,7 +1,7 @@
 ---
 title: "Choi_Diane_Capstone"
 author: "Diane Choi"
-date: "April, 24, 2020"
+date: "April 24, 2020"
 output: html_document
 ---
 
